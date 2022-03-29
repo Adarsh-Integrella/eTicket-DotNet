@@ -6,9 +6,12 @@ namespace eTickets.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Logo { get; set; } = string.Empty;
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public string Logo { get; set; } 
+        [Display(Name = "Logo")]
+        public string Name { get; set; } 
+        [Display(Name = "Name")]
+        public string Description { get; set; } 
+        [Display(Name = "Description")]
         public List<Movie> Movies { get; set; }
     }
 }
