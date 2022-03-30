@@ -1,10 +1,13 @@
 using eTickets.Data;
 using eTickets.Data.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
-var cString = builder.Configuration.GetConnectionString("DefaultConnectionString");
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(cString));
+// string  connString = builder.Configuration.GetConnectionString("DefaultConnectionString");
+string DefaultConnectionString =  @"Server=localhost; Database=ECommerce; Integrated Security=false; User=sa; Password=Kumar@danicha123; TrustServerCertificate=true";
+
+builder.Services.AddDbContext<AppDbContext>(options =>  options.UseSqlServer(DefaultConnectionString));
 
 //Services configration
 builder.Services.AddScoped<IActorsService, ActorsService>();
