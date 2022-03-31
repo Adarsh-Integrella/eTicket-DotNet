@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using eTickets.Models;
 using eTickets.Data;
 using Microsoft.EntityFrameworkCore;
-using eTickets.Data.Services;
+using eTickets.Services;
 
 namespace eTickets.Controllers;
 

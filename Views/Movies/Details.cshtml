@@ -11,9 +11,9 @@
                 <div class="col-md-12">
                     <div class="card-header text-white bg-info">
                         <p class="card-text">
-                            <h5 class="card-title">
-                                @Model.Name
-                            </h5>
+                        <h5 class="card-title">
+                            @Model.Name
+                        </h5>
                         </p>
                     </div>
                 </div>
@@ -56,16 +56,18 @@
                         <p class="card-text">
                             <b>Actors: </b>
                             <hr />
-                            @* <div class="row">
-                                @foreach (var actor in Model.Actors_Movies)
+                        <div class="d-flex justify-content-around">
+                                @foreach (var actor in Model.Actor_Movies)
                                 {
-                                    <div class="column text-center">
-                                        <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-width: 150px" />
-                                        <br />
-                                        <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">@actor.Actor.FullName</a>
-                                    </div>
+                                <div class="column text-center">
+                                    <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL"
+                                    style="max-width: 150px" />
+                                    <br />
+                                    <a asp-controller="Actors" asp-action="Details"
+                                    asp-route-id="@actor.ActorId">@actor.Actor.FullName</a>
+                                </div>
                                 }
-                            </div> *@
+                        </div>
                         </p>
 
                     </div>
@@ -76,7 +78,9 @@
                             <a class="btn btn-outline-primary float-right" asp-action="Index">
                                 Back to List
                             </a>
-                            <a class="btn btn-success text-white "><i class="bi bi-cart-plus"></i> Add to Cart </a>
+                            <a class="btn btn-success text-white  @((DateTime.Now > Model.EndDate) ? "disabled" : "")"
+                                asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id"><i
+                                    class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))</a>
                         </p>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 using eTickets.Data;
-using eTickets.Data.Services;
+using eTickets.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
@@ -11,6 +11,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>  options.UseSqlServer(Def
 
 //Services configration
 builder.Services.AddScoped<IActorsService, ActorsService>();
+builder.Services.AddScoped<IProducersService, ProducersService>();
+builder.Services.AddScoped<ICinemasService, CinemasService>();
+builder.Services.AddScoped<IMoviesService, MoviesService>();
+
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -25,7 +31,7 @@ if (!app.Environment.IsDevelopment())
     
     app.UseHsts();
 }
-
+// app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
