@@ -16,3 +16,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+.dropdown:hover .dropdown-menu {display: block;}
+
+.nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu
+     {margin-top: 0;}  
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 12px;
+  text-align: center;
+  }
